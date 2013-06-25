@@ -71,7 +71,7 @@ div.html-overlay {
 }
 
 .offender {
-  float: left; clear: none; height:225px;
+  float: left; clear: none; height:225px; max-width: 325px;
   border-right: 1px solid black; border-top: 1px solid black;
   margin-right: 5px; margin-top: 5px; margin-bottom: 5px;
 }
