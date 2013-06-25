@@ -31,7 +31,7 @@ var marion = (function(){
 	    /*.scale(1000)
 	      .translate([width/2,height/2])
 	      .rotate([96, 0, 0])
-	      .center([0, 38]);*/
+	      .center([0, 38])*/
 
 	    my.path = d3.geo.path()
 		.projection(my.projection)
@@ -48,11 +48,11 @@ var marion = (function(){
 		    .style("fill", function(d,i){
 			return "#FFF"
 		    })
-		    .attr("id", function(d){ return d.id })
+		    .attr("id", function(d){ return "Z" + d.id })
 		    .attr("d", my.path)
 		    .on("click", function(d,i){ my.click_handler(this, d, i) })
 
-		my.args.on_render(my);
+		my.args.on_render(my)
 	    })
 
 	    return this
@@ -77,7 +77,7 @@ var marion = (function(){
 
 	    my.regions.selectAll("path.active").style("fill", function(d,i){
 		var offenders_list = _.find(my.args.offenders_lists, function(offenders_list){
-		    return offenders_list.zip == d.id
+		    return offenders_list.zip == d.id.replace(/^Z/,'')
 		})
 		return d3.rgb(46,15,33).brighter(
 		    my.brightness_scale(offenders_list.offenders.length)
@@ -121,7 +121,7 @@ var marion = (function(){
 	    my.regions.selectAll("path.region")
 		.style("fill", function(d,i){
 		    var offenders_list = _.find(my.args.offenders_lists, function(offenders_list){
-			return offenders_list.zip == d.id
+			return offenders_list.zip == d.id.replace(/^Z/,'')
 		    })
 		    return d3.rgb(46,15,33).brighter(
 			my.brightness_scale(offenders_list.offenders.length)
@@ -129,6 +129,13 @@ var marion = (function(){
 		})
 	}
 
+	this.select_region = function(zip_code){
+	    var my = this
+	    var path_for_zip = my.regions.select("path#Z" + zip_code + ".region" ).each(
+		function(d,i){ my.click_handler(this, d, i) }
+	    )
+	}
+	
 	return this.init(args)
     }
     
@@ -170,10 +177,10 @@ $(document).ready(function(){
 				offenders_list: _.find(
 				    map_obj.args.offenders_lists,
 				    function(offenders_list){
-					return offenders_list.zip == d.id
+					return offenders_list.zip == d.id.replace(/^Z/,'')
 				    }
 				),
-				zip_code: d.id,
+				zip_code: d.id.replace(/^Z/,''),
 				area_name: d.properties.name
 			    })
 			}
@@ -182,6 +189,25 @@ $(document).ready(function(){
 		    }
 		})
 	    }
+	}
+    )
+
+    d3.json(
+	"./json/marion_zip_codes_list.json",
+	function(err_status, zip_list){
+	    $("select#zip_selector")
+		.append(
+		    _.reduce(
+			zip_list, function(memo, zip_tuple) {
+			    return memo + _.template(
+				"<option value='<%= zip_tuple[0] %>'><%= zip_tuple[0] %> - <%= zip_tuple[1] %></option>", {zip_tuple: zip_tuple}
+			    )
+			}, "<option value=''>Select a ZIP code</option>"
+		    )
+		).change(function(event){
+		    var opt = $("select#zip_selector option:selected")
+		    map.select_region( opt.val() )
+		})
 	}
     )
 })
