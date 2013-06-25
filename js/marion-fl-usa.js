@@ -51,7 +51,7 @@ var marion = (function(){
 		    .attr("id", function(d){ return "Z" + d.id })
 		    .attr("d", my.path)
 		    .on("click", function(d,i){ my.click_handler(this, d, i) })
-		    .on("mouseover", function(d,i){
+		    .on("mousemove", function(d,i){
 			var x, y
 			if (d3.event.pageX != undefined && d3.event.pageY != undefined) {
 			    x = d3.event.pageX

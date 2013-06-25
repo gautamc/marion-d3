@@ -71,3 +71,4 @@
 * images/ is the directory into which the images are downloaded from http://offender.fdle.state.fl.us
 * The ruby script rb/pull-data.rb gets the data for each zip code that is part of Marion County
 * The JS scripts in housekeeping/*.js are used to transform json data when required
+* http://visualizing.org/visualizations/visualizing-distribution-sexual-offenderspredators-marion-county-florida-usa
