@@ -6,7 +6,7 @@ var marion_topojson = JSON.parse( fs.readFileSync("./json/marion_zipcodes_topo.j
 var zip_codes = underscore.map(
     marion_topojson.objects.marion_zipcodes_geo.geometries,
     function(e){
-	return e.id;
+	return [e.id, e.properties.name];
     }
 );
 fs.writeFile(
