@@ -223,6 +223,7 @@ $(document).ready(function(){
 				zip_code: d.id.replace(/^Z/,''),
 				area_name: d.properties.name
 			    })
+			    $.scrollTo( '#select_zip', height, {easing:'elasout'} )
 			}
 		    }, on_render: function(map_obj) {
 			map_obj.render_data()
