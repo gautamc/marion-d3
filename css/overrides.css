@@ -77,3 +77,5 @@ div.html-overlay {
 }
 
 img.pic { height: 100px; width: 100px; }
+
+hr.nomargin { margin: 0px; }

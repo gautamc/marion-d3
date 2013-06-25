@@ -25,8 +25,8 @@ var marion = (function(){
 
 	    my.projection = d3.geo.albers()
 		.scale(30000 * (my.args.width/710))
-		.translate([my.args.width/2, my.args.height/2.3])
-		.rotate([82, -0.07, 0])
+		.translate([my.args.width/2, my.args.height/2])
+		.rotate([82, -0.026, 0])
 		.center([0, 29.2248])
 	    /*.scale(1000)
 	      .translate([width/2,height/2])
@@ -167,7 +167,7 @@ $(document).ready(function(){
 	    if( err_status == null ) {
 		offenders_lists = data
 		var width = $("div#map").width()
-		var height = width / 2.5
+		var height = width / 2.3
 		map = marion.map({
 		    e: "#map", width: width, height: height, offenders_lists: offenders_lists,
 		    after_click: function(map_obj, d, i) {
