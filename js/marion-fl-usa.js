@@ -79,9 +79,14 @@ var marion = (function(){
 		var offenders_list = _.find(my.args.offenders_lists, function(offenders_list){
 		    return offenders_list.zip == d.id.replace(/^Z/,'')
 		})
-		return d3.rgb(46,15,33).brighter(
-		    my.brightness_scale(offenders_list.offenders.length)
-		).toString()
+		if( offenders_list.offenders.length == 0 ) {
+		    return "#FFFFFF"
+		} else {
+		    // 225,45,240
+		    return d3.rgb(46,15,50).brighter(
+			my.brightness_scale(offenders_list.offenders.length)
+		    ).toString()
+		}
 	    })
 	    my.regions.selectAll("path")
 		.classed("active", my.centered && function(d,i) {
@@ -117,15 +122,20 @@ var marion = (function(){
 	    ).offenders.length
 	    
 	    my.brightness_scale = d3.scale.linear()
-		.domain([min_offenders_count, max_offenders_count]).range([6.0, 0.0])
+		.domain([min_offenders_count, max_offenders_count]).range([5.3, 0.0])
 	    my.regions.selectAll("path.region")
 		.style("fill", function(d,i){
 		    var offenders_list = _.find(my.args.offenders_lists, function(offenders_list){
 			return offenders_list.zip == d.id.replace(/^Z/,'')
 		    })
-		    return d3.rgb(46,15,33).brighter(
-			my.brightness_scale(offenders_list.offenders.length)
-		    ).toString()
+		    if( offenders_list.offenders.length == 0 ) {
+			return "#FFFFFF"
+		    } else {
+			// 225,45,240
+			return d3.rgb(46,15,50).brighter(
+			    my.brightness_scale(offenders_list.offenders.length)
+			).toString()
+		    }
 		})
 	}
 
