@@ -51,6 +51,36 @@ var marion = (function(){
 		    .attr("id", function(d){ return "Z" + d.id })
 		    .attr("d", my.path)
 		    .on("click", function(d,i){ my.click_handler(this, d, i) })
+		    .on("mouseover", function(d,i){
+			var x, y
+			if (d3.event.pageX != undefined && d3.event.pageY != undefined) {
+			    x = d3.event.pageX
+			    y = d3.event.pageY
+			} else {
+			    x = d3.event.clientX + document.body.scrollLeft +
+				document.documentElement.scrollLeft
+			    y = d3.event.clientY + document.body.scrollTop +
+				document.documentElement.scrollTop
+			}
+			if( $("#plot_overlay").length > 0 ) {
+			    $("#plot_overlay").css('top', y + 'px').css('left', x + 'px')
+			} else {
+			    var bubble_code = "<div id='plot_overlay' class='tooltip fade top in' " +
+				"style='position:absolute; top:" + y + "px; left:" + x +
+				"px; z-index: 1;'></div>"
+			    $("body").append(bubble_code)
+			}
+			var offenders_list = _.find(my.args.offenders_lists, function(offenders_list){
+			    return offenders_list.zip == d.id.replace(/^Z/,'')
+			})
+			$("#plot_overlay").html(
+			    "<b>" + d.id.replace(/^Z/,'') + " - " + d.properties.name + "</b><br />" +
+				offenders_list.offenders.length + " Known offenders."
+			)
+			$("#plot_overlay").show()
+	    	    }).on("mouseout", function(d,i){
+			$("#plot_overlay").hide()
+		    })
 
 		my.args.on_render(my)
 	    })
