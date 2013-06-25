@@ -47,7 +47,7 @@
 
       <div class="row-fluid">
 	<div class="span12">
-	  <p>This is a <b>visualization</b> of the <b>number of known Sexual Offenders/Predators by zip code in Marion County</b>, Florida. A <b>draker shade means</b> a <b>higher number of known Sexual Offenders/Predators</b>. Click on a region or select the ZIP code from the list given below the map. The data for this visualization was obtained from the website of the <a href="http://offender.fdle.state.fl.us/offender/homepage.do" target="_blank">Florida Dept of Law Enforcement on Jun 22 2013</a>. The code can be found on github: <a href="https://github.com/gautamc/marion-d3" target="_blank">https://github.com/gautamc/marion-d3</a></p>
+	  <p>This is a <b>visualization</b> of the <b>number of known Sexual Offenders/Predators by zip code in Marion County</b>, Florida. A <b>draker shade means</b> a <b>higher number of known Sexual Offenders/Predators</b>. Click on a region or select the ZIP code from the list given below the map, to display the list of known offenders under the map. The data for this visualization was obtained from the website of the <a href="http://offender.fdle.state.fl.us/offender/homepage.do" target="_blank">Florida Dept of Law Enforcement on Jun 22 2013</a>. The code can be found on github: <a href="https://github.com/gautamc/marion-d3" target="_blank">https://github.com/gautamc/marion-d3</a></p>
 	</div>
       </div>
 
@@ -90,8 +90,16 @@
       </div>
       <% }) %>
       <br />
-      
     </script>
-    
+
+    <script type="text/template" id="plot_overlay_template">
+      <b> <%= zip_code %> - <%= region_name %> </b>
+      <br />
+      <%= offenders_count %> Known offenders.
+    </script>
+
+    <div id="plot_overlay" class="tooltip fade top in">
+    </div>
+
   </body>
 </html>
