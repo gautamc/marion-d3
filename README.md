@@ -2,65 +2,65 @@
 
 = Structure:
 
- .
- |-- bootstrap
- |   |-- css
- |   |   |-- bootstrap.css
- |   |   |-- bootstrap.min.css
- |   |   |-- bootstrap-responsive.css
- |   |   `-- bootstrap-responsive.min.css
- |   |-- img
- |   |   |-- glyphicons-halflings.png
- |   |   `-- glyphicons-halflings-white.png
- |   `-- js
- |       |-- bootstrap.js
- |       `-- bootstrap.min.js
- |-- css
- |   |-- overrides.css
- |-- csv
- |-- gis
- |   `-- marion_local_data
- |       |-- marion_zipcodes.dbf
- |       |-- marion_zipcodes_geo.json
- |       |-- marion_zipcodes.prj
- |       |-- marion_zipcodes.qpj
- |       |-- marion_zipcodes.shp
- |       |-- marion_zipcodes.shx
- |       |-- marion_zipcodes_topo.json
- |       |-- ZipcodeBoundaries.dbf
- |       |-- ZipcodeBoundaries_geo.json
- |       |-- ZipcodeBoundaries.prj
- |       |-- ZipcodeBoundaries.sbn
- |       |-- ZipcodeBoundaries.sbx
- |       |-- ZipcodeBoundaries.shp
- |       |-- ZipcodeBoundaries.shp.xml
- |       |-- ZipcodeBoundaries.shx
- |       `-- ZipcodeBoundaries_topo.json
- |-- housekeeping
- |   |-- get_zipcodes.js
- |   |-- transform_feed.js
- |-- images
- |-- index.html
- |-- js
- |   |-- backbone-min.js
- |   |-- d3.v3.min.js
- |   |-- jquery.min.js
- |   |-- marion-fl-usa.js
- |   |-- quineloop_utils.js
- |   |-- topojson.v1.min.js
- |   |-- underscore-min.js
- |   `-- underscore.string.min.js
- |-- json
- |   |-- all.json
- |   |-- all.old.json
- |   |-- marion_zip_codes_list.json
- |   |-- marion_zipcodes_topo.json
- |   `-- zip_based_offenders_list.json
- |-- rb
- |   |-- pull-data.rb
- |-- README.md
+     .
+     |-- bootstrap
+     |   |-- css
+     |   |   |-- bootstrap.css
+     |   |   |-- bootstrap.min.css
+     |   |   |-- bootstrap-responsive.css
+     |   |   `-- bootstrap-responsive.min.css
+     |   |-- img
+     |   |   |-- glyphicons-halflings.png
+     |   |   `-- glyphicons-halflings-white.png
+     |   `-- js
+     |       |-- bootstrap.js
+     |       `-- bootstrap.min.js
+     |-- css
+     |   |-- overrides.css
+     |-- csv
+     |-- gis
+     |   `-- marion_local_data
+     |       |-- marion_zipcodes.dbf
+     |       |-- marion_zipcodes_geo.json
+     |       |-- marion_zipcodes.prj
+     |       |-- marion_zipcodes.qpj
+     |       |-- marion_zipcodes.shp
+     |       |-- marion_zipcodes.shx
+     |       |-- marion_zipcodes_topo.json
+     |       |-- ZipcodeBoundaries.dbf
+     |       |-- ZipcodeBoundaries_geo.json
+     |       |-- ZipcodeBoundaries.prj
+     |       |-- ZipcodeBoundaries.sbn
+     |       |-- ZipcodeBoundaries.sbx
+     |       |-- ZipcodeBoundaries.shp
+     |       |-- ZipcodeBoundaries.shp.xml
+     |       |-- ZipcodeBoundaries.shx
+     |       `-- ZipcodeBoundaries_topo.json
+     |-- housekeeping
+     |   |-- get_zipcodes.js
+     |   |-- transform_feed.js
+     |-- images
+     |-- index.html
+     |-- js
+     |   |-- backbone-min.js
+     |   |-- d3.v3.min.js
+     |   |-- jquery.min.js
+     |   |-- marion-fl-usa.js
+     |   |-- quineloop_utils.js
+     |   |-- topojson.v1.min.js
+     |   |-- underscore-min.js
+     |   `-- underscore.string.min.js
+     |-- json
+     |   |-- all.json
+     |   |-- all.old.json
+     |   |-- marion_zip_codes_list.json
+     |   |-- marion_zipcodes_topo.json
+     |   `-- zip_based_offenders_list.json
+     |-- rb
+     |   |-- pull-data.rb
+     |-- README.md
 
- 13 directories, 879 files
+     13 directories, 879 files
 
 = Summary:
 
