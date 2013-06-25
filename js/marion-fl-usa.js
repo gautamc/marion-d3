@@ -62,22 +62,19 @@ var marion = (function(){
 			    y = d3.event.clientY + document.body.scrollTop +
 				document.documentElement.scrollTop
 			}
-			x = x + 20;
-			y = y - 20;
-			if( $("#plot_overlay").length > 0 ) {
-			    $("#plot_overlay").css('top', y + 'px').css('left', x + 'px')
-			} else {
-			    var bubble_code = "<div id='plot_overlay' class='tooltip fade top in' " +
-				"style='position:absolute; top:" + y + "px; left:" + x +
-				"px; z-index: 1;'></div>"
-			    $("body").append(bubble_code)
-			}
+			x = x + 20, y = y - 20
+			$("#plot_overlay").css('top', y + 'px').css('left', x + 'px')
 			var offenders_list = _.find(my.args.offenders_lists, function(offenders_list){
 			    return offenders_list.zip == d.id.replace(/^Z/,'')
 			})
 			$("#plot_overlay").html(
-			    "<b>" + d.id.replace(/^Z/,'') + " - " + d.properties.name + "</b><br />" +
-				offenders_list.offenders.length + " Known offenders."
+			    _.template(
+				$("#plot_overlay_template").html(), {
+				    zip_code: d.id.replace(/^Z/,''),
+				    region_name: d.properties.name,
+				    offenders_count: offenders_list.offenders.length
+				}
+			    )
 			)
 			$("#plot_overlay").show()
 	    	    }).on("mouseout", function(d,i){

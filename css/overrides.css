@@ -84,4 +84,7 @@ div#plot_overlay {
   padding: 10px;
   background-color: #000000;
   color: white;
+  display: none;
+  postion: absolute;
+  z-index: 1;
 }
