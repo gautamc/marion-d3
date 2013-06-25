@@ -62,6 +62,8 @@ var marion = (function(){
 			    y = d3.event.clientY + document.body.scrollTop +
 				document.documentElement.scrollTop
 			}
+			x = x + 20;
+			y = y - 20;
 			if( $("#plot_overlay").length > 0 ) {
 			    $("#plot_overlay").css('top', y + 'px').css('left', x + 'px')
 			} else {
