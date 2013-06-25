@@ -66,7 +66,7 @@ var marion = (function(){
 		/*var centroid = my.path.centroid(d)
 		x = centroid[0]
 		y = centroid[1]
-		k = 2*/
+		k = 1.5*/
 		my.centered = d
 	    } else {
 		/*x = my.args.width / 2
@@ -172,6 +172,7 @@ $(document).ready(function(){
 		    e: "#map", width: width, height: height, offenders_lists: offenders_lists,
 		    after_click: function(map_obj, d, i) {
 			if( d ) {
+			    $("select#zip_selector").val( d.id.replace(/^Z/, '') )
 			    var Offenders_listing_view = new OffendersListingView({
 				el: $("#offenders_listing"),
 				offenders_list: _.find(
